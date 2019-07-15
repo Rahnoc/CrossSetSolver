@@ -10,17 +10,17 @@ import Foundation
 
 
 public struct Block {
-    public var numbers:[Int]
-    public var isStable:Bool
+    public var numbers:Set<Int>
+    public var isStable:Bool {
+        get { return (self.numbers.count == 1) }
+    }
     
     public init() {
-        self.numbers = []
-        self.isStable = false
+        self.numbers = Set<Int>()
     }
     
     public init(_ numbers:[Int]) {
-        self.numbers = numbers
-        self.isStable = false
+        self.numbers = Set<Int>(numbers)
     }
     
     // ---------------
