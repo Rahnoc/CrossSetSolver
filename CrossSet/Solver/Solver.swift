@@ -42,14 +42,14 @@ public class Solver {
     // (3) n same n-tuple block
     //     -> update [distributable]
     //
-    // (4) Block - [Certain] reduction.
+    // (4) Block - [Candidate] reduction.
     //     -> update workspace.
     
     // [certain] or any block has changed : modify flag = true.
     // repeat same line when modify=true.
     
-    // When reach last line, do stable check.
-    // When all blocks are stable, puz solved.
+    // When reaching the last line, do stable check.
+    // When all blocks are stable, puz is solved.
     
     // --------------------
     
