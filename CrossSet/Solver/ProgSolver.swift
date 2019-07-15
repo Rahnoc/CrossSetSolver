@@ -55,6 +55,7 @@ public class ProgSolver {
             modified = modified || self.phase4()
         }while( modified && !self.workspace.isAllStable() )
         
+        
         print( " -----[answer]----- " )
         print( self.workspace )
     }
@@ -215,7 +216,8 @@ public extension ProgSolver {
         let lineInfo = self.workspace.colInfo[colIndex]
         var founds:[(i:Int, n:Int)] = []
         
-        for number in lineInfo.free {
+        // 目標為所有尚未確定座位的數字。 (包含 n-tuple)
+        for number in lineInfo.free.union( lineInfo.distributable.subtracting(lineInfo.used) ) {
             var count:Int = 0
             var seatIdx:Int?
             
@@ -252,7 +254,8 @@ public extension ProgSolver {
         let lineInfo = self.workspace.rowInfo[rowIndex]
         var founds:[(i:Int, n:Int)] = []
         
-        for number in lineInfo.free {
+        // 目標為所有尚未確定座位的數字。 (包含 n-tuple)
+        for number in lineInfo.free.union( lineInfo.distributable.subtracting(lineInfo.used) ) {
             var count:Int = 0
             var seatIdx:Int?
             
