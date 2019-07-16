@@ -40,10 +40,8 @@ public class ProgSolver {
     // When all blocks are stable, puz is solved.
     
     
-    func solve() {
-        print(" > Puzzle >")
-        print( self.workspace )
-        
+    /// - returns: true 當發現解答, false 當矛盾發生，或解不下去。
+    func solve() -> Bool {
         var modified:Bool = false
         
         repeat{
@@ -53,11 +51,29 @@ public class ProgSolver {
             modified = modified || self.phase2()
             modified = modified || self.phase3()
             modified = modified || self.phase4()
+            
+            if self.workspace.isContradiction() {
+                // 發生矛盾就放棄
+                break
+            }
         }while( modified && !self.workspace.isAllStable() )
         
+        //     m !s
+        //     T F  > exit
+        //     T T  > cont.
+        //     F F  > exit
+        //     F T  > exit (can't handle)
         
-        print( " -----[answer]----- " )
-        print( self.workspace )
+        
+        if(self.workspace.isAllStable() && !workspace.isContradiction()) {
+            // 發現合理解答
+            return true
+            
+        }else{
+            // 矛盾，或是解不下去。
+            return false
+        }
+        
     }
     
     
@@ -149,6 +165,22 @@ public class ProgSolver {
 }
 
 
+public extension ProgSolver {
+    
+    // 設定某一格的數字為單一值，並更新對應行列的 line info。
+    func updateBlock(col:Int, row:Int, num:Int) {
+        let colIndex = col - 1
+        let rowIndex = row - 1
+        
+        let newSet = Set([num])
+        
+        self.workspace.blocks[(colIndex, rowIndex)].numbers = newSet
+        // 更新 line info。
+        self.workspace.colInfo[colIndex].foundSeat(nums: newSet)
+        self.workspace.rowInfo[rowIndex].foundSeat(nums: newSet)
+    }
+    
+}
 
 
 public extension ProgSolver {
@@ -383,9 +415,12 @@ public extension ProgSolver {
                 continue
             }
             
-            // 更新該格的可用選擇。
-            modified = true
-            self.workspace.blocks[(colIndex, j)].numbers.subtract( lineInfo.distributable )
+            let iSet = self.workspace.blocks[(colIndex, j)].numbers.intersection( lineInfo.distributable )
+            if (!iSet.isEmpty) {
+                // 更新該格的可用選擇。
+                modified = true
+                self.workspace.blocks[(colIndex, j)].numbers.subtract( lineInfo.distributable )
+            }
         }
         
         return modified
@@ -403,9 +438,12 @@ public extension ProgSolver {
                 continue
             }
             
-            // 更新該格的可用選擇。
-            modified = true
-            self.workspace.blocks[(i, rowIndex)].numbers.subtract( lineInfo.distributable )
+            let iSet = self.workspace.blocks[(i, rowIndex)].numbers.intersection( lineInfo.distributable )
+            if (!iSet.isEmpty) {
+                // 更新該格的可用選擇。
+                modified = true
+                self.workspace.blocks[(i, rowIndex)].numbers.subtract( lineInfo.distributable )
+            }
         }
         
         return modified

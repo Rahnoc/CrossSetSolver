@@ -15,6 +15,7 @@
 		6FC2008B22DB7CB4009C6B11 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2008A22DB7CB4009C6B11 /* Board.swift */; };
 		6FC2008D22DB7CD4009C6B11 /* LineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2008C22DB7CD4009C6B11 /* LineInfo.swift */; };
 		6FC2009422DB7D90009C6B11 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2009322DB7D90009C6B11 /* Reader.swift */; };
+		6FCD522122DCB45600BD70D4 /* GuessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD522022DCB45600BD70D4 /* GuessingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		6F854F9422DB86DC00515DB3 /* puz_csi */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi; sourceTree = "<group>"; };
+		6FA0A93C22DD8FEE00E1FBE3 /* strategy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = strategy.md; sourceTree = "<group>"; };
 		6FB65CA622DC4B6C00E701B0 /* CssArray2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CssArray2D.swift; sourceTree = "<group>"; };
 		6FB65CA822DC4BD100E701B0 /* CssXy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CssXy.swift; sourceTree = "<group>"; };
 		6FB65CAB22DC56CF00E701B0 /* ProgSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgSolver.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 		6FC2009022DB7D0C009C6B11 /* sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample; sourceTree = "<group>"; };
 		6FC2009122DB7D25009C6B11 /* puz_cs */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_cs; sourceTree = "<group>"; };
 		6FC2009322DB7D90009C6B11 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		6FCD522022DCB45600BD70D4 /* GuessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessingController.swift; sourceTree = "<group>"; };
 		6FF3610C22DC121600587487 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +76,7 @@
 				6FC2007C22DB7C2E009C6B11 /* CrossSetSolver */,
 				6FC2007B22DB7C2E009C6B11 /* Products */,
 				6FF3610C22DC121600587487 /* readme.md */,
+				6FA0A93C22DD8FEE00E1FBE3 /* strategy.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +122,7 @@
 			children = (
 				6FC2008C22DB7CD4009C6B11 /* LineInfo.swift */,
 				6FB65CAB22DC56CF00E701B0 /* ProgSolver.swift */,
+				6FCD522022DCB45600BD70D4 /* GuessingController.swift */,
 			);
 			path = Solver;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FCD522122DCB45600BD70D4 /* GuessingController.swift in Sources */,
 				6FB65CA922DC4BD100E701B0 /* CssXy.swift in Sources */,
 				6FC2009422DB7D90009C6B11 /* Reader.swift in Sources */,
 				6FB65CA722DC4B6C00E701B0 /* CssArray2D.swift in Sources */,

@@ -10,7 +10,8 @@ import Foundation
 
 
 /// 針對單一線段的當前 可用數字/已分配數字/有格子坐數字 的狀態。
-public struct LineInfo {
+public struct LineInfo:CustomStringConvertible {
+    
     var free:Set<Int>               // 所有可能候選
     var distributable:Set<Int>      // 可分配至方塊中，但是哪個方塊可能不確定。
     var used:Set<Int>               // 有明確分配目標。
@@ -47,4 +48,24 @@ public struct LineInfo {
         // 知道被使用，但沒有明確格子，所以 used 不更新。
     }
     
+    
+    public var description: String {
+        get {
+            var rtStr:String = String()
+            rtStr += "f:\(condense(self.free.sorted()))"
+            rtStr += " d:\(condense(self.distributable.sorted()))"
+            rtStr += " u:\(condense(self.used.sorted()))"
+            
+            return rtStr
+        }
+    }
+    
+    private func condense(_ arr:[Int]) -> String {
+        var rtStr:String = String()
+        for i in arr {
+            rtStr += "\(i)"
+        }
+        
+        return rtStr
+    }
 }

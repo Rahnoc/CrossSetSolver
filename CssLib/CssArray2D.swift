@@ -62,6 +62,12 @@ public class CssArray2D<T>: CustomStringConvertible {
         self.data = Array<T>( tiles )
     }
     
+    public init(copyFrom:CssArray2D) {
+        // 未使用deep copy.
+        self.data = copyFrom.data
+        self._dim = CssXy(copyFrom.dim.x, copyFrom.dim.y)
+    }
+    
     
     // ----------------------
     

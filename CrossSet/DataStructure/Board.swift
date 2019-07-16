@@ -43,6 +43,14 @@ public class Board: CustomStringConvertible {
         }
     }
     
+    
+    public init(copyFrom:Board) {
+        // elm 為 struct。
+        self.blocks = CssArray2D<Block>(copyFrom: copyFrom.blocks)
+        self.colInfo = copyFrom.colInfo
+        self.rowInfo = copyFrom.rowInfo
+    }
+    
     // -----------------
     
     /// 是否全 block 均為 stable？
@@ -72,6 +80,57 @@ public class Board: CustomStringConvertible {
             
             return rtStr
         }
+    }
+    
+    
+    public func isContradiction() -> Bool {
+        // for all cols
+        for i in 0 ..< self.blocks.dim.x {
+            var colStableArr:[Int] = []
+            for j in 0 ..< self.blocks.dim.y {
+                let block = self.blocks[(i, j)]
+                if(block.isStable) {
+                    colStableArr.append( block.numbers.first! )
+                }
+            }
+            
+            if self.hasRepeatedElm(arr: colStableArr) {
+                return true
+            }
+        }
+        
+        // for all rows
+        for j in 0 ..< self.blocks.dim.y {
+            var rowStableArr:[Int] = []
+            for i in 0 ..< self.blocks.dim.x {
+                let block = self.blocks[(i, j)]
+                if(block.isStable) {
+                    rowStableArr.append( block.numbers.first! )
+                }
+            }
+            
+            if self.hasRepeatedElm(arr: rowStableArr) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    private func hasRepeatedElm(arr:[Int]) -> Bool {
+        let sArr = arr.sorted()
+        
+        for (i, v1) in sArr.enumerated() {
+            for (j, v2) in sArr.enumerated() {
+                if (i == j) {continue}
+                if (v1 == v2) {
+                    return true
+                }
+            }
+        }
+        
+        return false
     }
     
 }
