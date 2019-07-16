@@ -44,6 +44,9 @@ public class GuessingController {
     //     無法移動指標 = 本層可以收工
     //  2. 卡住：快照後，開下一層繼續猜
     
+    // 猜測時，挑一個有一個以上數字的格子，每個數字都猜一次即可。
+    // 因為那個格子，最後必定會選用那些數字的其中一個。 所以猜測時，挑一個未解格子遍歷即可，不用每個未解格子都跑 (意義上會重複計算)。
+    
     public func run() {
         print( " > Timeline [Layer \(self.layer)] execute..." )
         
@@ -82,8 +85,8 @@ public class GuessingController {
                     }
                 }
                 
-                // 移動本層指標
-                ptr = self.findNextLegalPtr(board: self.snapshot, ptr: uwPtr)
+                // 移動本層指標，每個可用數字都猜一次。
+                ptr = self.findNextLegalNumberPtr(board: self.snapshot, ptr: uwPtr)
                 
             }else{
                 break
@@ -112,6 +115,8 @@ public class GuessingController {
         return nil
     }
     
+    /// (跨格子的移動) 先在格A.numbers 移動，數字跑完後，跳到下一個未解的格子B.number 繼續。
+    /// 沒有下一個未解格子可以跑時，回傳 nil。
     func findNextLegalPtr(board:Board, ptr:BlockPointer) -> BlockPointer? {
         var nextPtr:BlockPointer? = self.movePointer(board: board, ptr: ptr)
         
@@ -121,6 +126,17 @@ public class GuessingController {
             }
             
             nextPtr = self.movePointer(board: board, ptr: uwNextPtr)
+        }
+        
+        return nil
+    }
+    
+    /// 只在目標格的 numbers 內移動。 當 numbers 都跑過時，回傳 nil。
+    func findNextLegalNumberPtr(board:Board, ptr:BlockPointer) -> BlockPointer? {
+        let nextNumPtr = BlockPointer(c: ptr.col, r: ptr.row, snIdx: ptr.sortedNumIndex + 1)
+        if let _ = self.getPtPair(board: board, ptr: nextNumPtr) {
+            // 移動到同一格子 的下一個 number.
+            return nextNumPtr
         }
         
         return nil

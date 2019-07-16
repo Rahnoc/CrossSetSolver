@@ -33,6 +33,8 @@
 /* Begin PBXFileReference section */
 		6F854F9422DB86DC00515DB3 /* puz_csi */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi; sourceTree = "<group>"; };
 		6FA0A93C22DD8FEE00E1FBE3 /* strategy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = strategy.md; sourceTree = "<group>"; };
+		6FA0A93D22DDADE100E1FBE3 /* puz_csi_2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi_2; sourceTree = "<group>"; };
+		6FA0A93E22DDC0CB00E1FBE3 /* puz_csi_extra */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi_extra; sourceTree = "<group>"; };
 		6FB65CA622DC4B6C00E701B0 /* CssArray2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CssArray2D.swift; sourceTree = "<group>"; };
 		6FB65CA822DC4BD100E701B0 /* CssXy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CssXy.swift; sourceTree = "<group>"; };
 		6FB65CAB22DC56CF00E701B0 /* ProgSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgSolver.swift; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 				6FC2009022DB7D0C009C6B11 /* sample */,
 				6FC2009122DB7D25009C6B11 /* puz_cs */,
 				6F854F9422DB86DC00515DB3 /* puz_csi */,
+				6FA0A93D22DDADE100E1FBE3 /* puz_csi_2 */,
+				6FA0A93E22DDC0CB00E1FBE3 /* puz_csi_extra */,
 			);
 			path = puzSample;
 			sourceTree = "<group>";

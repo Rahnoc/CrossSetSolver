@@ -4,6 +4,8 @@ Cross Set 解題工具
 
 [Cross Set on Steam] (https://store.steampowered.com/app/415400/Cross_Set/)
 
+[Cross Set Infinity on Steam] (https://store.steampowered.com/app/705250/Cross_Set_Infinity/)
+
 ------
 
 輸入格式為
