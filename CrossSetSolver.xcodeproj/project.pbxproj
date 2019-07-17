@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F0079CC22DEABB300C9C8A9 /* puz_cs_extra */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_cs_extra; sourceTree = "<group>"; };
 		6F854F9422DB86DC00515DB3 /* puz_csi */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi; sourceTree = "<group>"; };
 		6FA0A93C22DD8FEE00E1FBE3 /* strategy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = strategy.md; sourceTree = "<group>"; };
 		6FA0A93D22DDADE100E1FBE3 /* puz_csi_2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = puz_csi_2; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		6FC2007122DB7C2E009C6B11 = {
 			isa = PBXGroup;
 			children = (
+				6FC2008522DB7C82009C6B11 /* puzSample */,
 				6FB65CAA22DC4EDE00E701B0 /* CssLib */,
 				6FC2008422DB7C79009C6B11 /* CrossSet */,
 				6FC2007C22DB7C2E009C6B11 /* CrossSetSolver */,
@@ -102,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				6FC2009222DB7D80009C6B11 /* Reader */,
-				6FC2008522DB7C82009C6B11 /* puzSample */,
 				6FC2008722DB7C94009C6B11 /* DataStructure */,
 				6FC2008622DB7C8D009C6B11 /* Solver */,
 			);
@@ -117,6 +118,7 @@
 				6F854F9422DB86DC00515DB3 /* puz_csi */,
 				6FA0A93D22DDADE100E1FBE3 /* puz_csi_2 */,
 				6FA0A93E22DDC0CB00E1FBE3 /* puz_csi_extra */,
+				6F0079CC22DEABB300C9C8A9 /* puz_cs_extra */,
 			);
 			path = puzSample;
 			sourceTree = "<group>";
